@@ -28,6 +28,9 @@ live:
 set:
 	export PGUSER=postgres
 
+activate:
+	source virtual/Scripts/activate
+
 admin:
 	python manage.py createsuperuser --username admin --email admin@admin.com
 

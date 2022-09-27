@@ -55,7 +55,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     # user = models.ForeignKey(User, on_delete=models.CASCADE,)
     username = models.CharField(max_length=19, null = True, blank = True, unique=True)    
     phone_number = models.CharField(max_length=19, null = True, blank = True)
-    avatar = CloudinaryField('/devs_talk_python_api')
+    avatar = CloudinaryField('image', folder='devs-talk-python-api')
     gender = models.CharField(choices=GENDER, max_length=55, null=True, blank=True)
     bio = models.TextField(max_length=120, null=True)
     is_user = models.BooleanField(default=False)
