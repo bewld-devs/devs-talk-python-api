@@ -2,7 +2,7 @@ run:
 	python manage.py runserver localhost:8000
 
 make:
-	python manage.py makemigrations api
+	python manage.py makemigrations devs_talk_api_app
 
 migrate:
 	python manage.py migrate
@@ -17,16 +17,16 @@ test:
 	python manage.py test
 
 drop:
-	dropdb api
+	dropdb devs-talk
 
 create:
-	createdb api
+	createdb devs-talk
 
 live:
 	python manage.py livereload
 
 set:
-	set PGUSER=postgres
+	export PGUSER=postgres
 
 admin:
 	python manage.py createsuperuser --username admin --email admin@admin.com

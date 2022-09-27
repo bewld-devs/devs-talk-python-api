@@ -37,6 +37,8 @@ ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS')
 # LIVERELOAD_HOST='127.0.0.1'
 # LIVERELOAD_PORT='8000'
 
+AUTH_USER_MODEL = "devs_talk_api_app.CustomUser" 
+
 if config('MODE')=="dev":    
     DATABASES = {
         'default': {
@@ -70,9 +72,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'devs_talk_api_app',
     'livereload',
-    'django.contrib.sites',
+    # 'django.contrib.sites',
     'cloudinary',
     'bootstrap5',
+    'phonenumber_field'
 
 ]
 
