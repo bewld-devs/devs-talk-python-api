@@ -206,6 +206,9 @@ The current working endpoints for this API are.
 - `post` ["/users"] ---> Creates a new user instance i.e Register Route
 - `post` ["/api/users"] ---> Creates a new user instance i.e Register Route
 
+- `delete` ["/users/:id"] ---> Deletes a user instance i.e Delete Route
+- `delete` ["/api/users/:id"] ---> Deletes a user instance i.e Delete Route
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
