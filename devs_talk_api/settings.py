@@ -75,7 +75,9 @@ INSTALLED_APPS = [
     # 'django.contrib.sites',
     'cloudinary',
     'bootstrap5',
-    'phonenumber_field'
+    'phonenumber_field',
+    'corsheaders',
+    'rest_framework_simplejwt',
 
 ]
 
