@@ -40,7 +40,7 @@ ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS')
 AUTH_USER_MODEL = "devs_talk_api_app.CustomUser" 
 
 CORS_ALLOWED_ORIGINS = [
-    "https://devs-talk-python-api.herokuapp.com"
+    "https://devs-talk-python-api.herokuapp.com",
     "https://example.com",
     "http://localhost:8080",
     "http://localhost:8000",
