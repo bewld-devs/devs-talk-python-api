@@ -22,6 +22,7 @@ class CustomUserClass(APIView):
         if pk:
             user = CustomUser.objects.get(id=pk)
             serializer = CustomUserSerializer(user)
+            time.sleep(3)
             return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
 
         user = CustomUser.objects.all()
