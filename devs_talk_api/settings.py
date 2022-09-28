@@ -92,6 +92,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'devs_talk_api_app',
+    'devs_talk_api_feeds',
     'livereload',
     # 'django.contrib.sites',
     'cloudinary',
