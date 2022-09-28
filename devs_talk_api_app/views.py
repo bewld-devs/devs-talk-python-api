@@ -36,3 +36,14 @@ class CustomUserClass(APIView):
         else:
             return Response({"status":"error", "result": new_user.errors}, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
+
+    def patch(self, request, pk=None):
+        update_user = CustomUser.objects.get(id=pk)
+        serializer = CustomUserSerializer(update_user, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"status": "success", "result": serializer.data}, status=status.HTTP_200_OK)
+        else:
+            return Response({"status":"error", "result": serializer.errors}, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+           
+
