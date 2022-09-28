@@ -14,7 +14,7 @@ from rest_framework.authtoken.models import Token
 
 
 def index(request):
-    return HTTTResponse("Welcome to Devs Talk")
+    return HttpResponse("Welcome to Devs Talk")
 
 class CustomUserClass(APIView):
     
