@@ -98,6 +98,8 @@ INSTALLED_APPS = [
     'bootstrap5',
     'phonenumber_field',
     'corsheaders',
+    'rest_framework',
+    'rest_framework.authtoken',
     'rest_framework_simplejwt',
 
 ]
