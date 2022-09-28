@@ -5,4 +5,5 @@ from .views import *
 urlpatterns = [
     path('', views.index, name='index'),
     path('users', CustomUserClass.as_view()),
+    
 ]

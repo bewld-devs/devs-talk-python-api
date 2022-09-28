@@ -6,14 +6,14 @@ from phonenumber_field.modelfields import PhoneNumberField
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.utils.translation import gettext_lazy as _
 from django.conf import settings
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, AbstractUser
 from django.contrib.auth.models import PermissionsMixin
 
 
 GENDER = (
     ('Male','MALE'),
     ('Female','FEMALE'),
-    ('Other','OTHER'),
+    ('Nonbinary','NONBINARY'),
     ('N/A','N/A'),
 )
 
@@ -110,4 +110,3 @@ class Staff(models.Model):
 
 #     def __str__(self):
 #         return self.buyer.first_name
-    

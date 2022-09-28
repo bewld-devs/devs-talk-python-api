@@ -47,7 +47,7 @@ if config('MODE')=="dev":
         'USER': os.getenv('DB_USER'),
         'PASSWORD': os.getenv('DB_PASSWORD'),
         'HOST': os.getenv('DB_HOST'),
-        'PORT': '',
+        'PORT': 5432,
         }
     }
 else:
