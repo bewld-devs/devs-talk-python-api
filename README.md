@@ -210,13 +210,13 @@ The current working endpoints for this API are.
 - `patch` ["/api/v1/dj-rest-auth/password/reset/confirm"] ---> Resets a user's password ie Password Reset Confirm Route
 
 - `patch` ["/users/:id"] ---> Updates a single user data i.e Update Route
-- `patch` ["/api/users/:id"] ---> Updates a single user data i.e Update Route
+- `patch` ["/api/v1/users/:id"] ---> Updates a single user data i.e Update Route
 
 - `post` ["/dj-rest-auth/registration"] ---> Creates a new user instance i.e Register Route
 - `post` ["/api/v1/dj-rest-auth/registration"] ---> Creates a new user instance i.e Register Route
 
 - `delete` ["/users/:id"] ---> Deletes a user instance i.e Delete Route
-- `delete` ["/api/users/:id"] ---> Deletes a user instance i.e Delete Route
+- `delete` ["/api/v1/users/:id"] ---> Deletes a user instance i.e Delete Route
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
