@@ -23,7 +23,7 @@
   <h3 align="center">The Best App For Developers</h3>
 
   <p align="center">
-    Find solutions for all your develpment problems
+    Find solutions for all your development problems
     <br />
     <a title="Coming soon..." href="#"><strong>Explore the docs »</strong></a>
     <br />
@@ -82,9 +82,9 @@ Use the `API Documentation` to get started.
 
 ### Built With
 
-This API has been built with
+This API has been built with Django
 
-[![Django][Django]][Django-url]
+<!-- [![Django][Django]][Django-url] -->
 <!-- * [![Next][Next.js]][Next-url]
 * [![React][React.js]][React-url]
 * [![Vue][Vue.js]][Vue-url]
@@ -162,7 +162,11 @@ _Follow the below instructions for installations._
 
    Windows:
    ```sh
+<<<<<<< HEAD
     virtual\Scripts\activate
+=======
+    virtual\scripts\activate
+>>>>>>> e7580c1b4dc32c2817de3433386ae4cd249e2afc
     ```
    Linux:
    ```sh
@@ -192,22 +196,32 @@ _Follow the below instructions for installations._
 
 The current working endpoints for this API are.
 
+
 - `get` ["/"] ---> Home Page: returns greeting
 
 - `get` ["/users"] ---> Returns all users
-- `get` ["/api/users"] ---> Returns all users
+- `get` ["/api/v1/users"] ---> Returns all users
 
-- `get` ["/users/:id"] ---> Returns single user i.e Login Route
-- `get` ["/api/users/:id"] ---> Returns single user i.e Login Route
+- `post` ["/dj-rest-auth/login"] ---> Returns single user i.e Login Route
+- `post` ["/api/v1/dj-rest-auth/login"] ---> Returns single user i.e Login Route
+
+- `delete` ["/dj-rest-auth/logout"] ---> Logs out a single user ie Logout Route
+- `delete` ["/api/v1/dj-rest-auth/logout"] ---> Logs out a single user ie Logout Route
+
+- `patch` ["/dj-rest-auth/password/reset"] ---> Resets a user's password i.e Password Reset Route
+- `patch` ["/api/v1/dj-rest-auth/password/reset"] ---> Resets a user's password i.e Password Reset Route
+
+- `patch` ["/dj-rest-auth/password/reset/confirm"] ---> Resets a user's password ie Password Reset Confirm Route
+- `patch` ["/api/v1/dj-rest-auth/password/reset/confirm"] ---> Resets a user's password ie Password Reset Confirm Route
 
 - `patch` ["/users/:id"] ---> Updates a single user data i.e Update Route
-- `patch` ["/api/users/:id"] ---> Updates a single user data i.e Update Route
+- `patch` ["/api/v1/users/:id"] ---> Updates a single user data i.e Update Route
 
-- `post` ["/users"] ---> Creates a new user instance i.e Register Route
-- `post` ["/api/users"] ---> Creates a new user instance i.e Register Route
+- `post` ["/dj-rest-auth/registration"] ---> Creates a new user instance i.e Register Route
+- `post` ["/api/v1/dj-rest-auth/registration"] ---> Creates a new user instance i.e Register Route
 
 - `delete` ["/users/:id"] ---> Deletes a user instance i.e Delete Route
-- `delete` ["/api/users/:id"] ---> Deletes a user instance i.e Delete Route
+- `delete` ["/api/v1/users/:id"] ---> Deletes a user instance i.e Delete Route
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
