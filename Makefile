@@ -2,7 +2,7 @@ run:
 	python manage.py runserver localhost:8000
 
 make:
-	python manage.py makemigrations devs_talk_api_app
+	python manage.py makemigrations
 
 migrate:
 	python manage.py migrate

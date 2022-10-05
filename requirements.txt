@@ -10,10 +10,8 @@ dj-database-url==1.0.0
 dj-rest-auth==2.2.5
 Django==4.1.1
 django-allauth==0.51.0
-django-bootstrap-v5==1.0.11
 django-cors-headers==3.13.0
 django-heroku==0.3.1
-django-livereload-server==0.4
 django-phonenumber-field==7.0.0
 djangorestframework==3.14.0
 djangorestframework-jwt==1.11.0

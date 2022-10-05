@@ -60,23 +60,19 @@ CORS_ALLOW_METHODS = [
     "PUT",
 ]
 
-# if config('MODE')=="dev":    
-#     DATABASES = {
-#         'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': os.getenv('DB_NAME'),
-#         'USER': os.getenv('DB_USER'),
-#         'PASSWORD': os.getenv('DB_PASSWORD'),
-#         'HOST': os.getenv('DB_HOST'),
-#         'PORT': 5432,
-#         }
-#     }
-# else:
-#     DATABASES = {
-#     'default': dj_database_url.config(
-#     default=config('DATABASE_URL')
-#     )
-# }
+if config('MODE')=="dev":    
+    DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME':  os.path.join(BASE_DIR, 'database.sqlite3'),
+    }
+}
+else:
+    DATABASES = {
+    'default': dj_database_url.config(
+    default=config('DATABASE_URL')
+    )
+}
 
 
 ALLOWED_HOSTS = ['*']
@@ -93,10 +89,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'devs_talk_api_app',
     'devs_talk_api_feeds',
-    'livereload',
     # 'django.contrib.sites',
     'cloudinary',
-    'bootstrap5',
     'phonenumber_field',
     'corsheaders',
     'allauth',
@@ -112,7 +106,6 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'corsheaders.middleware.CorsMiddleware',
-    'livereload.middleware.LiveReloadScript',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -157,12 +150,12 @@ WSGI_APPLICATION = 'devs_talk_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME':  os.path.join(BASE_DIR, 'database.sqlite3'),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME':  os.path.join(BASE_DIR, 'database.sqlite3'),
+#     }
+# }
 
 
 # Password validation

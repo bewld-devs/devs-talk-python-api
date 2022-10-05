@@ -15,13 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from dj_rest_auth.views import LoginView, LogoutView
 
 urlpatterns = [
     path('', include('devs_talk_api_app.urls'), name='blog.urls'),
     path('api/v1/', include('devs_talk_api_app.urls')),
     path('admin/', admin.site.urls),
     path('api-auth', include('rest_framework.urls')),
-    path('api/v1/dj-rest-auth/', include('dj_rest_auth.urls')),
-    path('api/v1/dj-rest-auth/registration', 
+    path('api/v1/', include('dj_rest_auth.urls')),
+    path('api/v1/login/', LoginView.as_view()),
+    path('api/v1/registration', 
         include('dj_rest_auth.registration.urls')),
 ]
