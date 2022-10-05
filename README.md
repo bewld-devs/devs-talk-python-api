@@ -162,7 +162,7 @@ _Follow the below instructions for installations._
 
    Windows:
    ```sh
-    source virtual/Scripts/activate
+    virtual\scripts\activate
     ```
    Linux:
    ```sh
@@ -176,7 +176,7 @@ _Follow the below instructions for installations._
 7. Add required variables inside the .env file
 3. Install django packages
    ```sh
-   pip install -r requirements
+   pip install -r requirements.txt
    ```
 4. Run Django server
    ```sh
