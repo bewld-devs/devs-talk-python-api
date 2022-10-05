@@ -76,8 +76,6 @@ Here's why:
 
 Use the `API Documentation` to get started.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 ### Built With
@@ -118,9 +116,7 @@ You sould have the following globally available in your machine, if not already 
 
   ```sh
   $ sudo apt update
-  ```
 
-   ```sh
   $ sudo apt install python3
   ```
 
@@ -135,9 +131,7 @@ You sould have the following globally available in your machine, if not already 
 
   ```sh
   $ sudo apt update
-  ```
 
-   ```sh
   $ sudo apt install code
   ```
 
@@ -196,56 +190,32 @@ The current working endpoints for this API are.
 
 | Endpoint                     | Description                  |
 |------------------------------|------------------------------|
-| `GET /`                      | Home Page: returns greeting  |
-| `GET /users`                 | Returns all users            |
-| `GET /api/v1/users`          | Returns all users            |
+| `GET /`                             | Home Page: returns greeting  |
+| `GET /api/v1/users`                 | Returns all users            |
+| `GET /api/v1/users/:id"`            | Returns a single user based on ID           |
 
 #### POST
 
 | Endpoint                | Description                         |
 |-------------------------|-------------------------------------|
-| `POST /`                |                                     |
-| `POST /api/`            |                                     |
-| `POST /api/`            |                                     |
-
-- `get` ["/"] ---> Home Page: returns greeting
-
-- `get` ["/api/v1/users"] ---> Returns all users
-
-- `get` ["/api/v1/users/:id"] ---> Returns a single user based on ID
-
-- `post` ["/api/v1/registration"] ---> Creates a new user instance i.e Register Route
-
-- `post` ["/api/v1/login"] ---> Returns single user i.e Login Route
-
-- `delete` ["/api/v1/logout"] ---> Logs out a single user ie Logout Route
-
-- `patch` ["/api/v1/password/reset"] ---> Resets a user's password i.e Password Reset Route
-
-- `patch` ["/api/v1/password/reset/confirm"] ---> Resets a user's password ie Password Reset Confirm Route
-
-- `patch` ["/api/v1/users/:id"] ---> Updates a single user data i.e Update Route
-
-- `delete` ["/api/v1/users/:id"] ---> Deletes a user instance i.e Delete Route
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+| `POST /api/v1/registration`    | Creates a new user instance i.e Register Route                         |
+| `POST /api/v1/login`           |  Returns single user i.e Login Route                                   |
 
 
-<!-- CONTRIBUTING -->
-<!-- ## Contributing
+#### DELETE
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+| Endpoint                | Description                         |
+|-------------------------|-------------------------------------|
+| `DELETE /api/v1/logout`       | Logs out a single user ie Logout Route        |
+| `DELETE /api/v1/users/:id`    | Deletes a user instance i.e Delete Route      |
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
+#### PATCH
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
+| Endpoint                | Description                         |
+|-------------------------|-------------------------------------|
+| `PATCH /api/v1/password/reset`           | Logs out a single user ie Logout Route                    |
+| `PATCH /api/v1/password/reset/confirm`   | Resets a user's password ie Password Reset Confirm Route  |
+| `PATCH /api/v1/users/:id`                | Updates a single user data i.e Update Route               |
 
 
 
