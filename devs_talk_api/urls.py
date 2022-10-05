@@ -18,6 +18,10 @@ from django.urls import path, include
 
 urlpatterns = [
     path('', include('devs_talk_api_app.urls'), name='blog.urls'),
-    path('api/', include('devs_talk_api_app.urls')),
+    path('api/v1/', include('devs_talk_api_app.urls')),
     path('admin/', admin.site.urls),
+    path('api-auth', include('rest_framework.urls')),
+    path('api/v1/dj-rest-auth/', include('dj_rest_auth.urls')),
+    path('api/v1/dj-rest-auth/registration', 
+        include('dj_rest_auth.registration.urls')),
 ]
