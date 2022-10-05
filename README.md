@@ -193,14 +193,14 @@ _Follow the below instructions for installations._
 The current working endpoints for this API are.
 
 | Endpoint                     | Description                  |
-|-------------------------------------------------------------|
+|------------------------------|------------------------------|
 | `GET /`                      | Home Page: returns greeting  |
 | `GET /users`                 | Returns all users            |
 | `GET /api/v1/users`          | Returns all users            |
 
 
 | Endpoint                | Description                         |
-|---------------------------------------------------------------|
+|-------------------------|-------------------------------------|
 | `POST /`                |                                     |
 | `POST /api/`            |                                     |
 | `POST /api/`            |                                     |
