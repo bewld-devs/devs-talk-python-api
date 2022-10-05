@@ -47,3 +47,7 @@ class CustomUserClass(APIView):
             return Response({"status":"error", "result": serializer.errors}, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
            
 
+    def delete(self, request, pk=None):
+        delete_user = get_object_or_404(CustomUser, id=pk)
+        delete_user.delete()
+        return Response({"status": "success", "data":"Account deleted!"}, status=status.HTTP_200_OK)
