@@ -23,7 +23,7 @@
   <h3 align="center">The Best App For Developers</h3>
 
   <p align="center">
-    Find solutions for all your develpment problems
+    Find solutions for all your development problems
     <br />
     <a title="Coming soon..." href="#"><strong>Explore the docs »</strong></a>
     <br />
@@ -82,9 +82,9 @@ Use the `API Documentation` to get started.
 
 ### Built With
 
-This API has been built with
+This API has been built with Django
 
-[![Django][Django]][Django-url]
+<!-- [![Django][Django]][Django-url] -->
 <!-- * [![Next][Next.js]][Next-url]
 * [![React][React.js]][React-url]
 * [![Vue][Vue.js]][Vue-url]
@@ -162,7 +162,7 @@ _Follow the below instructions for installations._
 
    Windows:
    ```sh
-    source virtual/Scripts/activate
+    virtual\scripts\activate
     ```
    Linux:
    ```sh
@@ -176,7 +176,7 @@ _Follow the below instructions for installations._
 7. Add required variables inside the .env file
 3. Install django packages
    ```sh
-   pip install -r requirements
+   pip install -r requirements.txt
    ```
 4. Run Django server
    ```sh
@@ -191,6 +191,7 @@ _Follow the below instructions for installations._
 ## Usage
 
 The current working endpoints for this API are.
+
 
 - `get` ["/"] ---> Home Page: returns greeting
 
