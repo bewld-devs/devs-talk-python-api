@@ -8,23 +8,30 @@ from devs_talk_api_app.models import CustomUser
 
 
 LANGUAGE = (
-    ('Html','HTML'),
+    ('Vue','VUE'),
     ('Python','PYTHON'),
     ('Javascript','JAVASCRIPT'),
     ('Ruby','RUBY'),
+    ('Java','JAVA'),
+    ('Rails','RAILS'),
+    ('React','REACT'),
+    ('Angular','ANGULAR'),
+    ('Php','PHP'),
+    ('Laravel','Laravel'),
 )
 
 
 class Feed(models.Model):
-    # id = uuid.UUIDField(primary_key=True)
+    id = models.UUIDField(primary_key = True, default = uuid.uuid4, editable = False)
     author = models.ForeignKey(CustomUser, on_delete=models.CASCADE,)
     title = models.CharField(max_length=19, null=True, blank=True, unique=True)    
-    # image = CloudinaryField('image', folder='devs-talk-python-api')
-    image = models.FileField(max_length=400, null=True, blank=True)
+    image = CloudinaryField('image', folder='devs-talk-python-api')
+    # image = models.FileField(max_length=400, null=True, blank=True)
     language = models.CharField(choices=LANGUAGE, max_length=55, null=True, blank=True)
-    content = models.TextField(max_length=120, null=True)
-    created_at = models.BooleanField(default=False)
-    updated_at = models.BooleanField(default=False)
+    description = models.TextField(max_length=120, null=True)
+    code_snippet = models.TextField(max_length=120, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     popularity = models.IntegerField(default=0, null=True, blank=True)
     is_solved = models.BooleanField(default=False)
     
@@ -32,4 +39,26 @@ class Feed(models.Model):
         return self.title
 
     
+class LikedFeed(models.Model):
+    user = models.ForeignKey(CustomUser,on_delete=models.CASCADE)
+    feed = models.ForeignKey(Feed, on_delete=models.CASCADE)
+    like = models.IntegerField(default=0)
 
+    def __str__(self):
+        return self.feed.title + " liked by " + self.user.username
+
+class DislikedFeed(models.Model):
+    user = models.ForeignKey(CustomUser,on_delete=models.CASCADE)
+    feed = models.ForeignKey(Feed, on_delete=models.CASCADE)
+    dislikes = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.feed.title + " disliked by " + self.user.username
+
+class ClappedFeed(models.Model):
+    user = models.ForeignKey(CustomUser,on_delete=models.CASCADE)
+    feed = models.ForeignKey(Feed, on_delete=models.CASCADE)
+    claps = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.feed.title + " clapped by " + self.user.username

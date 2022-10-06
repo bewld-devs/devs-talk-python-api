@@ -35,5 +35,10 @@ class FeedsClass(APIView):
             return Response({"status": "updated", "result": serializer.data}, status=status.HTTP_200_OK)
         else:
             return Response({"status":"error", "result": serializer.errors}, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+
+    def delete(self, request, pk=None):
+        delete_feed = get_object_or_404(Feed, id=pk)
+        delete_feed.delete()
+        return Response({"status": "success", "data":"Feed deleted!"}, status=status.HTTP_200_OK)
            
 
