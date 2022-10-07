@@ -12,7 +12,8 @@ class FeedsClass(
     mixins.CreateModelMixin,
     mixins.RetrieveModelMixin,
     mixins.UpdateModelMixin,
-    mixins.DestroyModelMixin,):
+    mixins.DestroyModelMixin,
+    ):
     
     def list(self, request, pk=None):
         feeds = Feed.objects.all()
