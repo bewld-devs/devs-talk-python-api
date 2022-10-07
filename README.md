@@ -1,22 +1,13 @@
 # Dev's Talk API Documentation
-### `Author: Beta World Developers`
+### Author: [Beta World Developers](https://github.com/bewld-devs/)
 
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a name="readme-top"></a>
-
-<!-- [![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url] -->
-
 
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="https://devs-talk-python-api.herokuapp.com/">
     <img src="https://res.cloudinary.com/bewld-devs/image/upload/v1664395344/devs-talk-python-api/devs-no-bg_fong32.png" alt="Logo" width="150" height="100">
   </a>
 
@@ -25,10 +16,10 @@
   <p align="center">
     Find solutions for all your development problems
     <br />
-    <a title="Coming soon..." href="#"><strong>Explore the docs »</strong></a>
+    <a title="Coming soon..." href="https://devs-talk-python-api.herokuapp.com/"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a title="Coming soon..." href="#">View Site</a>
+    <a title="Coming soon..." href="https://devs-talk-python-api.herokuapp.com">View Site</a>
     ·
     <a title="Coming soon..." href="#">Report Bug</a>
     ·
@@ -82,15 +73,6 @@ Use the `API Documentation` to get started.
 
 This API has been built with Django
 
-<!-- [![Django][Django]][Django-url] -->
-<!-- * [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url] -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -177,7 +159,6 @@ _Follow the below instructions for installations._
    python3 manage.py runserver
    ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -192,17 +173,17 @@ The current working endpoints for this API are.
 |------------------------------|------------------------------|
 | `GET /`                             | Home Page: returns greeting                 |
 | `GET /api/v1/users`                 | Returns all users                           |
-| `GET /api/v1/users/:id"`            | Returns a single user based on ID           |
-| `GET /api/v1/feeds"`                | Returns all feeds                           |
-| `GET /api/v1/feeds/:id"`            | Returns a single feed based on ID           |
+| `GET /api/v1/users/:id`             | Returns a single user based on ID           |
+| `GET /api/v1/feeds`                 | Returns all feeds                           |
+| `GET /api/v1/feeds/:id`             | Returns a single feed based on ID           |
 
 #### POST
 
 | Endpoint                | Description                         |
 |-------------------------|-------------------------------------|
-| `POST /api/v1/registration`           | Creates a new user instance i.e Register Route                                    |
-| `POST /api/v1/login`                  |  Returns single user i.e Login Route                                              |
-| `POST /api/v1/feeds/create`           |  Creates a feed and returns a newly created feed                                  |
+| `POST /api/v1/registration`  | Creates a new user instance i.e Register Route                                    |
+| `POST /api/v1/login`         |  Returns single user i.e Login Route                                              |
+| `POST /api/v1/feeds/create`  |  Creates a feed and returns a newly created feed                                  |
 
 
 #### DELETE
@@ -229,7 +210,6 @@ The current working endpoints for this API are.
 
 Still in development.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
