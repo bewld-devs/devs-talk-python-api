@@ -183,6 +183,7 @@ The current working endpoints for this API are.
 |-------------------------|-------------------------------------|
 | `POST /api/v1/registration`  | Creates a new user instance i.e Register Route                                    |
 | `POST /api/v1/login`         |  Returns single user i.e Login Route                                              |
+| `POST /api/v1/users`         | Creates a new user instance i.e Register Route                                    |
 | `POST /api/v1/feeds/create`  |  Creates a feed and returns a newly created feed                                  |
 
 
