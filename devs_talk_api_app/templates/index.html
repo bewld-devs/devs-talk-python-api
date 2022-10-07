@@ -55,7 +55,7 @@
             </div>
             <ul>
                 <li class="scroll-to-link active" data-target="content-get-started">
-                    <a>GET STARTED</a>
+                    <a>Get Started</a>
                 </li>
                 <li class="scroll-to-link" data-target="content-get-characters">
                     <a>Get Users</a>
@@ -99,70 +99,42 @@ curl \
                 <br>
                 <pre><code class="json">
 Result example :
-
 {
-  query:{
-    offset: 0,
-    limit: 50,
-    house: [
-      "Stark",
-      "Bolton"
-    ],
-  }
-  result: [
-    {
-      id: 1,
-      first_name: "Jon",
-      last_name: "Snow",
-      alive: true,
-      house: "Stark",
-      gender: "m",
-      age: 14,
-      location: "Winterfell"
-    },
-    {
-      id: 2,
-      first_name: "Eddard",
-      last_name: "Stark",
-      alive: false,
-      house: "Stark",
-      gender: "m",
-      age: 35,
-      location: 'Winterfell'
-    },
-    {
-      id: 3,
-      first_name: "Catelyn",
-      last_name: "Stark",
-      alive: false,
-      house: "Stark",
-      gender: "f",
-      age: 33,
-      location: "Winterfell"
-    },
-    {
-      id: 4,
-      first_name: "Roose",
-      last_name: "Bolton",
-      alive: false,
-      house: "Bolton",
-      gender: "m",
-      age: 40,
-      location: "Dreadfort"
-    },
-    {
-      id: 5,
-      first_name: "Ramsay",
-      last_name: "Snow",
-      alive: false,
-      house: "Bolton",
-      gender: "m",
-      age: 15,
-      location: "Dreadfort"
-    },
-  ]
+    "status": "success",
+    "data": [
+        {
+            "id": 1,
+            "password": "pbkdf2_sha256$390000$vaqYgw2pFiKSqMBVKbyR1D$JulmUoPxHcxtbeBWoZVdeEAlRXgAgjARz9i59xBx7+c=",
+            "username": "admin",
+            "phone_number": null,
+            "avatar": "",
+            "gender": null,
+            "bio": null,
+            "is_user": false,
+            "first_name": "admin",
+            "last_name": "admin",
+            "email": "admin@admin.com",
+            "location": null,
+            "is_admin": true
+        },
+        {
+            "id": 2,
+            "password": "pbkdf2_sha256$390000$80utWj6cZz8IinxFAWJTJT$5tDzom44KwT7n/ZwHGq2GP0Mdm+WWpijW8kDxah8pxY=",
+            "username": "admin7",
+            "phone_number": null,
+            "avatar": "",
+            "gender": null,
+            "bio": null,
+            "is_user": false,
+            "first_name": "admin7",
+            "last_name": "admin7",
+            "email": "admin7@admin.com",
+            "location": null,
+            "is_admin": false
+        }
+    ]
 }
-                </code></pre>
+           </code></pre>
                 <h4>QUERY PARAMETERS</h4>
                 <table class="central-overflow-x">
                     <thead>
@@ -195,6 +167,100 @@ Result example :
                             <td>Boolean</td>
                             <td>
                                 (optional) a boolean to filter alived characters
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>gender</td>
+                            <td>String</td>
+                            <td>
+                                (optional) a string to filter character by gender:<br>
+                                m: male<br>
+                                f: female
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>offset</td>
+                            <td>Integer</td>
+                            <td>(optional - default: 0) A cursor for use in pagination. Pagination starts offset the
+                                specified offset.</td>
+                        </tr>
+                        <tr>
+                            <td>limit</td>
+                            <td>Integer</td>
+                            <td>(optional - default: 10) A limit on the number of objects to be returned, between 1 and
+                                100.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="overflow-hidden content-section" id="content-create-user">
+                <h2>create users</h2>
+                <pre><code class="bash">
+# Here is a curl example
+curl \
+-X POST https://devs-talk-python-api.herokuapp.com/api/v1/users 
+
+                </code></pre>
+                <p>
+                    To create a user you need to make a POST call to the following url :<br>
+                    <code class="higlighted break-word">/api/v1/users</code>
+                </p>
+                <br>
+                <pre><code class="json">
+Result example :
+{
+    "status": "success",
+    "data": [
+        {
+            "id": 2,
+            "password": "pbkdf2_sha256$390000$80utWj6cZz8IinxFAWJTJT$5tDzom44KwT7n/ZwHGq2GP0Mdm+WWpijW8kDxah8pxY=",
+            "username": "admin7",
+            "phone_number": null,
+            "avatar": "",
+            "gender": null,
+            "bio": null,
+            "is_user": false,
+            "first_name": "admin7",
+            "last_name": "admin7",
+            "email": "admin7@admin.com",
+            "location": null,
+            "is_admin": false
+        }
+    ]
+}
+           </code></pre>
+                <h4>QUERY PARAMETERS</h4>
+                <table class="central-overflow-x">
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Type</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>first_name</td>
+                            <td>String</td>
+                            <td>User's first name</td>
+                        </tr>
+                        <tr>
+                            <td>last_name</td>
+                            <td>String</td>
+                            <td>User's first name</td>
+                        </tr>
+                        <tr>
+                            <td>username</td>
+                            <td>String</td>
+                            <td>
+                                User's username
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>email</td>
+                            <td>String</td>
+                            <td>
+                                User's email
                             </td>
                         </tr>
                         <tr>
