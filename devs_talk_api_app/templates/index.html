@@ -12,7 +12,7 @@
     <meta http-equiv="cleartype" content="on">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
+
 
     <link rel="stylesheet" href="css/hightlightjs-dark.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
@@ -23,7 +23,9 @@
         rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'css/hightlightjs-dark.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
-    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
 </head>
 
 <body>
@@ -51,7 +53,7 @@
         <div class="content-menu">
             <div class="content-infos">
                 <div class="info"><b>Version:</b> 1.0.5</div>
-                <div class="info"><b>Last Updated:</b> 06th Oct, 2022</div>
+                <div class="info"><b>Last Updated:</b> 07th Oct, 2022  15:13EAT by peter</div>
             </div>
             <ul>
                 <li class="scroll-to-link active" data-target="content-get-started">
@@ -117,81 +119,10 @@ Result example :
             "location": null,
             "is_admin": true
         },
-        {
-            "id": 2,
-            "password": "pbkdf2_sha256$390000$80utWj6cZz8IinxFAWJTJT$5tDzom44KwT7n/ZwHGq2GP0Mdm+WWpijW8kDxah8pxY=",
-            "username": "admin7",
-            "phone_number": null,
-            "avatar": "",
-            "gender": null,
-            "bio": null,
-            "is_user": false,
-            "first_name": "admin7",
-            "last_name": "admin7",
-            "email": "admin7@admin.com",
-            "location": null,
-            "is_admin": false
-        }
-    ]
-}
+        { ...
            </code></pre>
-                <h4>QUERY PARAMETERS</h4>
-                <table class="central-overflow-x">
-                    <thead>
-                        <tr>
-                            <th>Field</th>
-                            <th>Type</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>secret_key</td>
-                            <td>String</td>
-                            <td>Your API key.</td>
-                        </tr>
-                        <tr>
-                            <td>search</td>
-                            <td>String</td>
-                            <td>(optional) A search word to find character by name.</td>
-                        </tr>
-                        <tr>
-                            <td>house</td>
-                            <td>String</td>
-                            <td>
-                                (optional) a string array of houses:
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>alive</td>
-                            <td>Boolean</td>
-                            <td>
-                                (optional) a boolean to filter alived characters
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>gender</td>
-                            <td>String</td>
-                            <td>
-                                (optional) a string to filter character by gender:<br>
-                                m: male<br>
-                                f: female
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>offset</td>
-                            <td>Integer</td>
-                            <td>(optional - default: 0) A cursor for use in pagination. Pagination starts offset the
-                                specified offset.</td>
-                        </tr>
-                        <tr>
-                            <td>limit</td>
-                            <td>Integer</td>
-                            <td>(optional - default: 10) A limit on the number of objects to be returned, between 1 and
-                                100.</td>
-                        </tr>
-                    </tbody>
-                </table>
+
+
             </div>
             <div class="overflow-hidden content-section" id="content-create-user">
                 <h2>create users</h2>
@@ -276,7 +207,7 @@ Result example :
             <div class="overflow-hidden content-section" id="content-errors">
                 <h2>Errors</h2>
                 <p>
-                    The Westeros API uses the following error codes:
+                    The Devs Talk API uses the following error codes:
                 </p>
                 <table>
                     <thead>
