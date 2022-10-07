@@ -190,32 +190,37 @@ The current working endpoints for this API are.
 
 | Endpoint                     | Description                  |
 |------------------------------|------------------------------|
-| `GET /`                             | Home Page: returns greeting  |
-| `GET /api/v1/users`                 | Returns all users            |
+| `GET /`                             | Home Page: returns greeting                 |
+| `GET /api/v1/users`                 | Returns all users                           |
 | `GET /api/v1/users/:id"`            | Returns a single user based on ID           |
+| `GET /api/v1/feeds"`                | Returns all feeds                           |
+| `GET /api/v1/feeds/:id"`            | Returns a single feed based on ID           |
 
 #### POST
 
 | Endpoint                | Description                         |
 |-------------------------|-------------------------------------|
-| `POST /api/v1/registration`    | Creates a new user instance i.e Register Route                         |
-| `POST /api/v1/login`           |  Returns single user i.e Login Route                                   |
+| `POST /api/v1/registration`           | Creates a new user instance i.e Register Route                                    |
+| `POST /api/v1/login`                  |  Returns single user i.e Login Route                                              |
+| `POST /api/v1/feeds/create`           |  Creates a feed and returns a newly created feed                                  |
 
 
 #### DELETE
 
 | Endpoint                | Description                         |
 |-------------------------|-------------------------------------|
-| `DELETE /api/v1/logout`       | Logs out a single user ie Logout Route        |
-| `DELETE /api/v1/users/:id`    | Deletes a user instance i.e Delete Route      |
+| `DELETE /api/v1/logout`              | Logs out a single user ie Logout Route        |
+| `DELETE /api/v1/users/:id`           | Deletes a user instance i.e Delete Route      |
+| `DELETE /api/v1/feeds/delete/:id`    | Deletes a feed instance i.e Delete Route      |
 
 #### PATCH
 
 | Endpoint                | Description                         |
 |-------------------------|-------------------------------------|
-| `PATCH /api/v1/password/reset`           | Logs out a single user ie Logout Route                    |
-| `PATCH /api/v1/password/reset/confirm`   | Resets a user's password ie Password Reset Confirm Route  |
-| `PATCH /api/v1/users/:id`                | Updates a single user data i.e Update Route               |
+| `PATCH /api/v1/password/reset`                 | Logs out a single user ie Logout Route                    |
+| `PATCH /api/v1/password/reset/confirm`         | Resets a user's password ie Password Reset Confirm Route  |
+| `PATCH /api/v1/users/:id`                      | Updates a single user data i.e Update Route               |
+| `PATCH /api/v1/fees/update/:id`                | Updates a single feed based on id                         |
 
 
 
