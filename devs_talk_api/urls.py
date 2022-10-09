@@ -15,12 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from dj_rest_auth.views import LoginView, LogoutView
+from dj_rest_auth.views import LoginView
 
 urlpatterns = [
     path('', include('devs_talk_api_app.urls'), name='blog.urls'),
     path('api/v1/', include('devs_talk_api_app.urls')),
     path('api/v1/', include('devs_talk_api_feeds.urls')),
+    path('api/v1/', include('devs_talk_api_comments.urls')),
     path('admin/', admin.site.urls),
     path('api-auth', include('rest_framework.urls')),
     path('api/v1/', include('dj_rest_auth.urls')),
