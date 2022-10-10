@@ -27,12 +27,12 @@ class FeedsClass(
             return Response({"status": "success", "result": serializer_class.data}, status=status.HTTP_200_OK)
 
     def create(self, request):
-        new_feed = FeedsSerializer(data=request.data)
-        if new_feed.is_valid():
-            new_feed.save()
-            return Response({"status": "success", "result": new_feed.data}, status=status.HTTP_200_OK)
+        serializer_class = FeedsSerializer(data=request.data)
+        if serializer_class.is_valid():
+            serializer_class.save()
+            return Response({"status": "success", "result": serializer_class.data}, status=status.HTTP_200_OK)
         else:
-            return Response({"status":"error", "result": new_feed.errors}, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+            return Response({"status":"error", "result": serializer_class.errors}, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
 
     def update(self, request, pk=None):
