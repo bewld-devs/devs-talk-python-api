@@ -14,35 +14,38 @@ class FeedsClass(
     mixins.UpdateModelMixin,
     mixins.DestroyModelMixin,
     ):
+
+    serializer_class = FeedsSerializer
+    queryset = Feed.objects.all()
     
     def list(self, request, pk=None):
         feeds = Feed.objects.all()
-        serializer_class = FeedsSerializer(feeds, many=True)
-        return Response({"status": "success", "results": serializer_class.data}, status=status.HTTP_200_OK)
+        serializer = FeedsSerializer(feeds, many=True)
+        return Response({"status": "success", "results": serializer.data}, status=status.HTTP_200_OK)
 
     def retrieve(self, request, pk=None):
         if pk:
             feed = Feed.objects.get(id=pk)
-            serializer_class = FeedsSerializer(feed)
-            return Response({"status": "success", "result": serializer_class.data}, status=status.HTTP_200_OK)
+            serializer = FeedsSerializer(feed)
+            return Response({"status": "success", "result": serializer.data}, status=status.HTTP_200_OK)
 
     def create(self, request):
-        serializer_class = FeedsSerializer(data=request.data)
-        if serializer_class.is_valid():
-            serializer_class.save()
-            return Response({"status": "success", "result": serializer_class.data}, status=status.HTTP_200_OK)
+        new_feed = FeedsSerializer(data=request.data)
+        if new_feed.is_valid():
+            new_feed.save()
+            return Response({"status": "success", "result": new_feed.data}, status=status.HTTP_200_OK)
         else:
-            return Response({"status":"error", "result": serializer_class.errors}, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+            return Response({"status":"error", "result": new_feed.errors}, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
 
     def update(self, request, pk=None):
         update_feed = Feed.objects.get(id=pk)
-        serializer_class = FeedsSerializer(update_feed, data=request.data, partial=True)
-        if serializer_class.is_valid():
-            serializer_class.save()
-            return Response({"status": "updated", "result": serializer_class.data}, status=status.HTTP_200_OK)
+        serializer = FeedsSerializer(update_feed, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"status": "updated", "result": serializer.data}, status=status.HTTP_200_OK)
         else:
-            return Response({"status":"error", "result": serializer_class.errors}, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+            return Response({"status":"error", "result": serializer.errors}, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
     def destroy(self, request, pk=None):
         delete_feed = get_object_or_404(Feed, id=pk)
