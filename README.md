@@ -177,7 +177,9 @@ The current working endpoints for this API are.
 | `GET /api/v1/feeds`                 | Returns all feeds                           |
 | `GET /api/v1/feeds/:id`                 | Returns a single feed based on ID                           |
 | `GET /api/v1/comments`             | Returns all comments          |
-| `GET /api/v1/comments/:id`             | Returns a single comment based on ID           |
+| `GET /api/v1/comments/:id`             | Returns a single comment based on the ID          |
+| `GET /api/v1/replies`             | Returns all replies          |
+| `GET /api/v1/replies/:id`             | Returns a single reply based on ID           |
 
 #### POST
 
@@ -188,6 +190,7 @@ The current working endpoints for this API are.
 | `POST /api/v1/users`         | Creates a new user instance i.e Register Route                                    |
 | `POST /api/v1/feeds/create`  |  Creates a feed and returns a newly created feed                                  |
 | `POST /api/v1/comments/create`  |  Creates a comment and returns a newly created comment                                  |
+| `POST /api/v1/replies/create`  |  Creates a reply and returns a newly created reply                                 |
 
 
 #### DELETE
@@ -198,6 +201,7 @@ The current working endpoints for this API are.
 | `DELETE /api/v1/users/:id`           | Deletes a user instance i.e Delete Route      |
 | `DELETE /api/v1/feeds/delete/:id`    | Deletes a feed instance i.e Delete Route      |
 | `DELETE /api/v1/comments/delete/:id`    | Deletes a comment instance i.e Delete Route      |
+| `DELETE /api/v1/replies/delete/:id`    | Deletes a reply instance i.e Delete Route      |
 
 #### PATCH
 
@@ -208,6 +212,7 @@ The current working endpoints for this API are.
 | `PATCH /api/v1/users/:id`                      | Updates a single user data i.e Update Route               |
 | `PATCH /api/v1/feeds/update/:id`                | Updates a single feed based on id                         |
 | `PATCH /api/v1/comments/update/:id`                | Updates a single comment based on id                         |
+| `PATCH /api/v1/replies/update/:id`                | Updates a single reply based on id                         |
 
 
 
