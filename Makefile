@@ -22,9 +22,6 @@ drop:
 create:
 	createdb devs-talk
 
-live:
-	python manage.py livereload
-
 set:
 	export PGUSER=postgres
 
