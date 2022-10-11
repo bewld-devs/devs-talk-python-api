@@ -17,17 +17,18 @@ LANGUAGE = (
     ('Angular','ANGULAR'),
     ('Php','PHP'),
     ('Laravel','Laravel'),
+    ('Django','DJANGO'),
 )
 
 
 class Feed(models.Model):
     author = models.ForeignKey(CustomUser, on_delete=models.CASCADE,)
-    title = models.CharField(max_length=19, null=True, blank=True, unique=True)    
+    title = models.CharField(max_length=100, null=True, blank=True, unique=True)    
     image = CloudinaryField('image', folder='devs-talk-python-api')
     # image = models.FileField(max_length=400, null=True, blank=True)
-    language = models.CharField(choices=LANGUAGE, max_length=55, null=True, blank=True)
-    description = models.TextField(max_length=120, null=True, blank=True)
-    code_snippet = models.TextField(max_length=120, null=True, blank=True)
+    language = models.CharField(choices=LANGUAGE, max_length=155, null=True, blank=True)
+    description = models.TextField(max_length=520, null=True, blank=True)
+    code_snippet = models.TextField(max_length=520, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     popularity = models.IntegerField(default=0, null=True, blank=True)

@@ -14,6 +14,9 @@ class FeedsClass(
     mixins.UpdateModelMixin,
     mixins.DestroyModelMixin,
     ):
+
+    serializer_class = FeedsSerializer
+    queryset = Feed.objects.all()
     
     def list(self, request, pk=None):
         feeds = Feed.objects.all()
