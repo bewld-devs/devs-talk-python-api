@@ -58,7 +58,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     phone_number = models.CharField(max_length=19, null = True, blank = True)
     avatar = CloudinaryField('image', folder='devs-talk-python-api')
     gender = models.CharField(choices=GENDER, max_length=55, null=True, blank=True)
-    date_of_birth = models.DateField(max_length=8, default=datetime.date.today, null=True, blank=True)
+    date_of_birth = models.DateField(max_length=8, null=True, blank=True,)
     bio = models.TextField(max_length=120, null=True)
     is_user = models.BooleanField(default=False)
     first_name = models.CharField(_('first name'), max_length=40)
