@@ -199,6 +199,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
+DATE_FORMAT = '%d-%m-%y'
+
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
