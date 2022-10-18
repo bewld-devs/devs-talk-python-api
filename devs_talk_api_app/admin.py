@@ -9,11 +9,11 @@ from django.contrib.auth.admin import UserAdmin  as BaseUserAdmin
 class UserAdmin(BaseUserAdmin):
     # add_form =  SignUpForm
     
-    list_display = ('email', 'first_name', 'phone_number', 'is_active', 'username',  'is_user')
+    list_display = ('email', 'first_name', 'phone_number', 'is_active', 'username')
     list_filter = ('is_superuser',)
 
     fieldsets = (
-        (None, {'fields': ('email', 'is_staff', 'is_superuser', 'password', 'username',  'is_user', 'is_active')}),
+        (None, {'fields': ('email', 'is_staff', 'is_superuser', 'password', 'username', 'is_active')}),
         ('Personal info', {'fields': ('first_name', 'phone_number', 'gender', 'avatar', 'bio')}),
         ('Groups', {'fields': ('groups',)}),
         ('Permissions', {'fields': ('user_permissions',)}),
