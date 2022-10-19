@@ -14,18 +14,18 @@ class UserAdmin(BaseUserAdmin):
 
     fieldsets = (
         (None, {'fields': ('email', 'is_staff', 'is_superuser', 'password', 'username', 'is_active')}),
-        ('Personal info', {'fields': ('first_name', 'phone_number', 'gender')}),
+        ('Personal info', {'fields': ('first_name', 'gender')}),
         ('Groups', {'fields': ('groups',)}),
         ('Permissions', {'fields': ('user_permissions',)}),
     )
     add_fieldsets = (
         (None, {'fields': ('email', 'is_staff', 'username', 'is_active', 'is_superuser', 'password1', 'password2')}),
-        ('Personal info', {'fields': ('first_name', 'last_name', 'phone_number' ,'gender')}),
+        ('Personal info', {'fields': ('first_name', 'last_name', 'gender')}),
         ('Groups', {'fields': ('groups',)}),
         ('Permissions', {'fields': ('user_permissions',)}),
     )
 
-    search_fields = ('email', 'first_name', 'phone_number')
+    search_fields = ('email', 'first_name')
     ordering = ('email',)
     filter_horizontal = ()
 
@@ -45,8 +45,6 @@ admin.site.register(CustomUser,UserAdmin)
 # class ProductImageAdmin(admin.ModelAdmin):
 #     pass
 
-
-# admin.site.register(Product)
 admin.site.register(Staff)
 admin.site.register(Profile)
 admin.site.register(Work)
