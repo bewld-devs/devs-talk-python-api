@@ -9,6 +9,8 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('users', CustomUserClass.as_view()),
     path('users/<int:pk>', CustomUserClass.as_view()),
+    path('profile', ProfileClass.as_view()),
+    path('profile/<int:pk>', ProfileClass.as_view()),
 ]
 
 if settings.DEBUG:

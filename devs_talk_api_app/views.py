@@ -51,3 +51,43 @@ class CustomUserClass(APIView):
         delete_user = get_object_or_404(CustomUser, id=pk)
         delete_user.delete()
         return Response({"status": "success", "data":"Account deleted!"}, status=status.HTTP_200_OK)
+
+
+class ProfileClass(APIView):
+
+    serializer_class = ProfileSerializer
+    queryset = Profile.objects.all()
+
+    def get(self, request, user=None):
+        if user:
+            profile = Profile.objects.get(user=user)
+            serializer = ProfileSerializer(profile)
+            return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
+
+        profile = Profile.objects.all()
+        serializer = ProfileSerializer(profile, many=True)
+        return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK) 
+
+    def post(self, request):
+        new_profile = ProfileSerializer(data=request.data)
+        if new_profile.is_valid():
+            new_profile.save()
+            return Response({"status": "success", "result": new_profile.data}, status=status.HTTP_200_OK)
+        else:
+            return Response({"status":"error", "result": new_profile.errors}, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+
+
+    def patch(self, request, user=None):
+        update_profile = Profile.objects.get(user=user)
+        serializer = ProfileSerializer(update_profile, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"status": "success", "result": serializer.data}, status=status.HTTP_200_OK)
+        else:
+            return Response({"status":"error", "result": serializer.errors}, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+           
+
+    def delete(self, request, user=None):
+        delete_profile = get_object_or_404(Profile, user=user)
+        delete_profile.delete()
+        return Response({"status": "success", "data":"Profile deleted!"}, status=status.HTTP_200_OK)

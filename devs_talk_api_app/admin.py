@@ -9,7 +9,7 @@ from django.contrib.auth.admin import UserAdmin  as BaseUserAdmin
 class UserAdmin(BaseUserAdmin):
     # add_form =  SignUpForm
     
-    list_display = ('email', 'first_name', 'phone_number', 'is_active', 'username')
+    list_display = ('email', 'first_name', 'is_active', 'username')
     list_filter = ('is_superuser',)
 
     fieldsets = (
@@ -48,3 +48,6 @@ admin.site.register(CustomUser,UserAdmin)
 
 # admin.site.register(Product)
 admin.site.register(Staff)
+admin.site.register(Profile)
+admin.site.register(Work)
+admin.site.register(Education)

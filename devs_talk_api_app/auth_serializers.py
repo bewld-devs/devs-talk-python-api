@@ -12,3 +12,31 @@ class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
         exclude = ("last_login", "is_superuser", "is_staff", "is_active", "user_permissions", "groups")
+
+
+class EducationSerializer(serializers.ModelSerializer):
+    many=True   
+    
+    class Meta:
+        model = Education
+        
+        fields = '__all__'
+
+class WorkSerializer(serializers.ModelSerializer):
+    many=True   
+    
+    class Meta:
+        model = Work
+        
+        fields = '__all__'
+
+
+class ProfileSerializer(serializers.ModelSerializer):
+    user = CustomUserSerializer
+    education = EducationSerializer
+    work = WorkSerializer  
+    
+    class Meta:
+        model = Profile
+        fields = '__all__'
+
