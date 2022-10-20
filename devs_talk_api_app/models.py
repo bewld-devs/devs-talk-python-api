@@ -1,3 +1,4 @@
+from enum import unique
 from tokenize import blank_re
 import uuid
 from cloudinary.models import CloudinaryField
@@ -126,7 +127,7 @@ class Work(models.Model):
 class Profile(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
     date_of_birth = models.DateField(max_length=8, null=True, blank=True)
-    phone_number = models.CharField(max_length=19, null = True, blank = True)
+    phone_number = PhoneNumberField(null=True, blank=True)
     education = models.ForeignKey(Education, blank=True, null=True, on_delete=models.CASCADE)
     work = models.ForeignKey(Work, blank=True, null=True, on_delete=models.CASCADE)
     bio = models.CharField(max_length=255, null=True, blank=True)

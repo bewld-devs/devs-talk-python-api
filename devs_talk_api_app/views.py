@@ -1,3 +1,4 @@
+from modulefinder import packagePathMap
 from django.http import HttpResponse
 from django.shortcuts import render,get_object_or_404
 from .auth_serializers import *
@@ -58,9 +59,9 @@ class ProfileClass(APIView):
     serializer_class = ProfileSerializer
     queryset = Profile.objects.all()
 
-    def get(self, request, user=None):
-        if user:
-            profile = Profile.objects.get(user=user)
+    def get(self, request, pk=None):
+        if pk:
+            profile = Profile.objects.get(id=pk)
             serializer = ProfileSerializer(profile)
             return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
 
@@ -77,8 +78,8 @@ class ProfileClass(APIView):
             return Response({"status":"error", "result": new_profile.errors}, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
 
-    def patch(self, request, user=None):
-        update_profile = Profile.objects.get(user=user)
+    def patch(self, request, pk=None):
+        update_profile = Profile.objects.get(id=pk)
         serializer = ProfileSerializer(update_profile, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
@@ -87,7 +88,7 @@ class ProfileClass(APIView):
             return Response({"status":"error", "result": serializer.errors}, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
            
 
-    def delete(self, request, user=None):
-        delete_profile = get_object_or_404(Profile, user=user)
+    def delete(self, request, pk=None):
+        delete_profile = get_object_or_404(Profile, id=pk)
         delete_profile.delete()
         return Response({"status": "success", "data":"Profile deleted!"}, status=status.HTTP_200_OK)
