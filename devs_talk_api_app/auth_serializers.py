@@ -1,17 +1,7 @@
+from wsgiref import validate
 from rest_framework import serializers
 from .models import *
 from django.contrib.auth.hashers import make_password
-
-class CustomUserSerializer(serializers.ModelSerializer):
-    
-    def create(self, validated_data):
-        validated_data['password'] = make_password(validated_data['password'])
-        return super(CustomUserSerializer, self).create(validated_data)
-    
-    
-    class Meta:
-        model = CustomUser
-        exclude = ("last_login", "is_superuser", "is_staff", "is_active", "user_permissions", "groups")
 
 
 class EducationSerializer(serializers.ModelSerializer):
@@ -30,13 +20,40 @@ class WorkSerializer(serializers.ModelSerializer):
         
         fields = '__all__'
 
-
 class ProfileSerializer(serializers.ModelSerializer):
-    user = CustomUserSerializer
+    # user = CustomUserSerializer
     education = EducationSerializer
     work = WorkSerializer  
     
     class Meta:
         model = Profile
         fields = '__all__'
+
+class CustomUserSerializer(serializers.ModelSerializer):
+    profile = ProfileSerializer(required=True)
+    
+    def create(self, validated_data):
+        validated_data['password'] = make_password(validated_data['password'])
+        return super(CustomUserSerializer, self).create(validated_data)
+    
+    # def update(self, instance, validated_data):
+    #     user = self.context['request'].user
+        
+    #     if user.pk != instance.pk:
+    #         raise serializers.ValidationError({"authorize": "You don't have permission to update this user"})
+
+    #     instance.password = validated_data['password']
+    #     instance.save()
+
+    #     return instance
+    
+    class Meta:
+        model = CustomUser
+        exclude = ("last_login", "is_superuser", "is_staff", "is_active", "user_permissions", "groups")
+
+
+
+
+
+
 

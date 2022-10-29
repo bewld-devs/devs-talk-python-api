@@ -18,6 +18,8 @@ def index(request):
     return render(request, "index.html")
 
 class CustomUserClass(APIView):
+    serializer_class = CustomUserSerializer
+    queryset = CustomUser.objects.all()
     
     def get(self, request, pk=None):
         if pk:
@@ -40,7 +42,7 @@ class CustomUserClass(APIView):
 
     def patch(self, request, pk=None):
         update_user = CustomUser.objects.get(id=pk)
-        serializer = CustomUserSerializer(update_user, data=request.data, partial=True)
+        serializer = CustomUserSerializer(update_user, data=request.data, partial=True) 
         if serializer.is_valid():
             serializer.save()
             return Response({"status": "success", "result": serializer.data}, status=status.HTTP_200_OK)
