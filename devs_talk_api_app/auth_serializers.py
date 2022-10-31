@@ -27,7 +27,7 @@ class ProfileSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Profile
-        fields = '__all__'
+        exclude = ["user"]
 
 class CustomUserSerializer(serializers.ModelSerializer):
     profile = ProfileSerializer(required=True)
@@ -35,6 +35,12 @@ class CustomUserSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         validated_data['password'] = make_password(validated_data['password'])
         return super(CustomUserSerializer, self).create(validated_data)
+
+    def update(self, instance, validated_data):
+        password = validated_data.get('password', instance.password)
+        instance.set_password(password)
+        instance.save()
+        return instance
     
     # def update(self, instance, validated_data):
     #     user = self.context['request'].user

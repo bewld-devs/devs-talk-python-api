@@ -11,6 +11,8 @@ from django.conf import settings
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, AbstractUser
 from django.contrib.auth.models import PermissionsMixin
 import datetime
+from django.dispatch import receiver
+from django.db.models.signals import post_save
 
 
 GENDER = (
@@ -147,3 +149,8 @@ class Staff(models.Model):
     
 
 
+@receiver(post_save, sender=CustomUser)
+def update_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+    instance.profile.save()
