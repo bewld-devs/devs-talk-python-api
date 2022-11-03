@@ -30,7 +30,7 @@ class ProfileSerializer(serializers.ModelSerializer):
         exclude = ["user"]
 
 class CustomUserSerializer(serializers.ModelSerializer):
-    profile = ProfileSerializer(required=True)
+    profile = ProfileSerializer(required=False)
     
     def create(self, validated_data):
         validated_data['password'] = make_password(validated_data['password'])
@@ -56,6 +56,7 @@ class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
         exclude = ("last_login", "is_superuser", "is_staff", "is_active", "user_permissions", "groups")
+        optional_fields = ['profile', ]
 
 
 
