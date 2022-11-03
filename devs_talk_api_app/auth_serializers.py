@@ -21,7 +21,6 @@ class WorkSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class ProfileSerializer(serializers.ModelSerializer):
-    # user = CustomUserSerializer
     education = EducationSerializer
     work = WorkSerializer  
     
@@ -42,16 +41,6 @@ class CustomUserSerializer(serializers.ModelSerializer):
         instance.save()
         return instance
     
-    # def update(self, instance, validated_data):
-    #     user = self.context['request'].user
-        
-    #     if user.pk != instance.pk:
-    #         raise serializers.ValidationError({"authorize": "You don't have permission to update this user"})
-
-    #     instance.password = validated_data['password']
-    #     instance.save()
-
-    #     return instance
     
     class Meta:
         model = CustomUser
