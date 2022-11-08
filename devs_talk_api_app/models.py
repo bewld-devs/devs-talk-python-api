@@ -1,16 +1,16 @@
-from enum import unique
-from tokenize import blank_re
-import uuid
+# from enum import unique
+# from tokenize import blank_re
+# import uuid
 from cloudinary.models import CloudinaryField
 # from django.contrib.auth.models import User
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
-from django.core.validators import MinValueValidator, MaxValueValidator
+# from django.core.validators import MinValueValidator, MaxValueValidator
 from django.utils.translation import gettext_lazy as _
 from django.conf import settings
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, AbstractUser
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.models import PermissionsMixin
-import datetime
+# import datetime
 from django.dispatch import receiver
 from django.db.models.signals import post_save
 
@@ -134,8 +134,8 @@ class Profile(models.Model):
     work = models.ForeignKey(Work, blank=True, null=True, on_delete=models.CASCADE)
     bio = models.CharField(max_length=255, null=True, blank=True)
     location = models.CharField(max_length=55, null=True, blank=True)
-    avatar = CloudinaryField('image')
-    cover_photo = CloudinaryField('image')
+    # avatar = CloudinaryField('image')
+    # cover_photo = CloudinaryField('image')
 
     def __str__(self):
         return f'{self.user.username} Profile'

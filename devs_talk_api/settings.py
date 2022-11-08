@@ -9,16 +9,18 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
+# "python.linting.pylintArgs": ["--disable=C0111"]
 
-from pathlib import Path
+
 import os
-from decouple import config,Csv
+from datetime import timedelta
+from decouple import config
 from dotenv import load_dotenv
 import dj_database_url
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
-from datetime import timedelta
+
 
 load_dotenv()
 
@@ -67,7 +69,7 @@ CORS_ALLOW_METHODS = [
     "PUT",
 ]
 
-if config('MODE')=="dev":    
+if config('MODE')=="dev":   
     DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -242,4 +244,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 SITE_ID = 1
 
 PHONENUMBER_DEFAULT_FORMAT = 'INTERNATIONAL'
+
 
