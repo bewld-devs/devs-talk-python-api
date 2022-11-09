@@ -134,8 +134,8 @@ class Profile(models.Model):
     work = models.ForeignKey(Work, blank=True, null=True, on_delete=models.CASCADE)
     bio = models.CharField(max_length=255, null=True, blank=True)
     location = models.CharField(max_length=55, null=True, blank=True)
-    # avatar = CloudinaryField('image')
-    # cover_photo = CloudinaryField('image')
+    avatar = CloudinaryField('image', null=True, folder='devs-talk-python-api-avatars')
+    cover_photo = CloudinaryField('image', null=True, folder='devs-talk-python-api-cover-photos')
 
     def __str__(self):
         return f'{self.user.username} Profile'

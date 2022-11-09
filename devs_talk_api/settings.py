@@ -99,7 +99,7 @@ INSTALLED_APPS = [
     'devs_talk_api_app',
     'devs_talk_api_feeds',
     'devs_talk_api_comments',
-    # 'django.contrib.sites',
+    #'django.contrib.sites',
     'cloudinary',
     'phonenumber_field',
     'corsheaders',
