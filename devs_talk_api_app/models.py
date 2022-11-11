@@ -161,7 +161,8 @@ class Follow(models.Model):
     follower = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='follower')
     following = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='following')
     created = models.DateTimeField(auto_now_add=True, db_index=True)
-    username = models.CharField(max_length=19, null = True, blank = True, unique=True)
+    # username = models.CharField(max_length=19, null=True)
+
 
     class Meta:
         unique_together = (('follower', 'following'),)
