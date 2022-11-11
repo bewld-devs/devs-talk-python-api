@@ -94,3 +94,13 @@ class ProfileClass(APIView):
         delete_profile = get_object_or_404(Profile, id=pk)
         delete_profile.delete()
         return Response({"status": "success", "data":"Profile deleted!"}, status=status.HTTP_200_OK)
+
+
+class Following(APIView):
+    serializer_class = FollowingSerializer
+    queryset = Follow.objects.all()
+
+
+class Follower(APIView):
+    serializer_class = FollowerSerializer
+    queryset = Follow.objects.all()

@@ -155,3 +155,22 @@ def update_user_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
     instance.profile.save()
+
+
+class Follow(models.Model):
+    follower = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='follower')
+    following = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='following')
+    created = models.DateTimeField(auto_now_add=True, db_index=True)
+
+    class Meta:
+        unique_together = (('follower', 'following'),)
+        index_together = (('follower', 'following'),)
+        ordering = ["-created"]
+
+    def __str__(self):
+            return f'{self.follower.username} is following {self.following.username}'
+
+    def getFollowers(self):
+            return Follow.objects.filter(following=self.id)
+
+

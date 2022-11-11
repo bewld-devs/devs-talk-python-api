@@ -28,8 +28,33 @@ class ProfileSerializer(serializers.ModelSerializer):
         model = Profile
         exclude = ["user"]
 
+
+class FollowingSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Follow
+        fields = ("id", "following", "created")
+        
+
+class FollowerSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Follow
+        fields = ("id", "follower", "created")
+
+
+
 class CustomUserSerializer(serializers.ModelSerializer):
     profile = ProfileSerializer(required=False)
+    following = serializers.SerializerMethodField()
+    follower = serializers.SerializerMethodField()
+
+    def get_following(self, obj):
+        return FollowingSerializer(obj.following.all(), many=True).data
+
+    def get_follower(self, obj):
+        return FollowerSerializer(obj.follower.all(), many=True).data
+
     
     def create(self, validated_data):
         validated_data['password'] = make_password(validated_data['password'])

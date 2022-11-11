@@ -16,7 +16,7 @@ LANGUAGE = (
     ('React','REACT'),
     ('Angular','ANGULAR'),
     ('Php','PHP'),
-    ('Laravel','Laravel'),
+    ('Laravel','LARAVEL'),
     ('Django','DJANGO'),
 )
 
