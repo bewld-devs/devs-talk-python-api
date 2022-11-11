@@ -53,7 +53,7 @@ class CustomUserSerializer(serializers.ModelSerializer):
         return FollowingSerializer(obj.following.all(), many=True).data
 
     def get_follower(self, obj):
-        return FollowerSerializer(obj.followers.all(), many=True).data
+        return FollowerSerializer(obj.follower.all(), many=True).data
 
     
     def create(self, validated_data):
