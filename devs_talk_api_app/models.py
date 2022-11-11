@@ -163,8 +163,8 @@ class Follow(models.Model):
     created = models.DateTimeField(auto_now_add=True, db_index=True)
 
     class Meta:
-        unique_together = (('followers', 'following'),)
-        index_together = (('followers', 'following'),)
+        unique_together = (('follower', 'following'),)
+        index_together = (('follower', 'following'),)
         ordering = ["-created"]
 
     def __str__(self):
