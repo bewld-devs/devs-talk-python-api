@@ -100,7 +100,40 @@ class Following(APIView):
     serializer_class = FollowingSerializer
     queryset = Follow.objects.all()
 
+    def get(self, request, pk=None):
+        if pk:
+            following = Follow.objects.get(id=pk)
+            serializer = FollowingSerializer(following)
+            return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
+
+        following = Follow.objects.all()
+        serializer = FollowingSerializer(following, many=True)
+        return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK) 
+
+    def post(self, request):
+        new_following = ProfileSerializer(data=request.data)
+        if new_following.is_valid():
+            new_following.save()
+            return Response({"status": "success", "result": new_following.data}, status=status.HTTP_200_OK)
+        else:
+            return Response({"status":"error", "result": new_following.errors}, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+           
+    def delete(self, request, pk=None):
+        unfollow = get_object_or_404(Follow, id=pk)
+        unfollow.delete()
+        return Response({"status": "success", "data":"Unfollow Successful!"}, status=status.HTTP_200_OK)
+
 
 class Follower(APIView):
     serializer_class = FollowerSerializer
     queryset = Follow.objects.all()
+
+    def get(self, request, pk=None):
+        if pk:
+            follower = Follow.objects.get(id=pk)
+            serializer = FollowerSerializer(follower)
+            return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
+
+        follower = Follow.objects.all()
+        serializer = FollowingSerializer(follower, many=True)
+        return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK) 
